@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+
+.header {
+	border-bottom: 2px solid black;
+	cursor: default;
+	display: flex;
+	justify-content: space-between;
+	padding: 1rem;
+	height: 40px;
+}
+
+.header__logo {
+	align-items: center;
+	display: flex;
+}
+
+.header__logo > h1::before {
+	content: "";
+	background-image: url(../../../assets/img/star-solid.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	display: inline-block;
+	height: 30px;
+	margin-right: 5px;
+	width: 30px;
+}
+
+.header__logo > h1 {
+	font-size: 2rem;
+	font-family: "Pacifico", cursive;
+}
+
+.header__options {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+}
+
+.header__options > * {
+	margin-left: 2rem;
+}
+
+.header__options-form {
+	border: 1px solid rgb(199, 199, 199);
+	display: flex;
+}
+.header__options-form:focus-within {
+	outline: none; /* Remove a borda padrão do foco */
+	border-color: black; /* Altera a cor da borda do input */
+}
+
+.header__options-form > input {
+	border: none;
+}
+
+.header__options-form > input:focus-visible {
+	outline: none;
+}
+
+.header__options-search,
+.header__options-menu {
+	background: none;
+	background-position: center;
+	background-repeat: no-repeat;
+	border: none;
+	cursor: pointer;
+	height: 35px;
+	width: 35px;
+}
+
+.header__options-menu {
+	background-image: url("../../../assets/img/menu.svg");
+}
+.header__options-search {
+	background-image: url("../../../assets/img/pesquisa_preto.png");
+}

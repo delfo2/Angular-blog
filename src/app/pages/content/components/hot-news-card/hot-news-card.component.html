@@ -1,0 +1,32 @@
+<section class="news">
+	<div class="news__text">
+		<div>
+			<h2 class="news__text-title">
+				Free Speech Runs Up Against Courtroom Decorum...
+			</h2>
+			<p class="news__text-description">
+				Judges face uncharted territory in deciding whether a
+				presidential candidate’s remarks flout rules protecting a fair
+				and orderly trial
+			</p>
+		</div>
+		<div>
+			<span class="news__text-sauce">The Wall Street Journal</span>
+			<app-global-link
+				class="news__text-link"
+				linkHref="http://www.wsj.com/us-news/trumps-free-speech-runs-up-against-courtroom-decorum-4a9dd0c4"
+				linkText="ver mais..."
+			></app-global-link>
+		</div>
+	</div>
+	<div class="news__img">
+		<img
+			class="news__img-start"
+			[style.width]="imgProps.imgSize"
+			[style.transition]="imgProps.imgTransition"
+			[style.object-position]="imgProps.imgPosition"
+			src="https://images.wsj.net/im-842640/social"
+			alt=""
+		/>
+	</div>
+</section>

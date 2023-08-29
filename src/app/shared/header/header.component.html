@@ -1,0 +1,20 @@
+<header class="header">
+	<div class="header__logo">
+		<h1>News</h1>
+	</div>
+	<div class="header__options">
+		<button
+			*ngIf="canShowButtons"
+			(click)="toggleVisibility()"
+			class="header__options-search"
+		></button>
+		<form *ngIf="canShowInputSearch" class="header__options-form">
+			<input type="text" name="search" id="search" />
+			<button
+				(click)="toggleVisibility()"
+				class="header__options-search"
+			></button>
+		</form>
+		<button *ngIf="canShowButtons" class="header__options-menu"></button>
+	</div>
+</header>
