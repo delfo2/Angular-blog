@@ -1,12 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
-
 .header {
 	border-bottom: 2px solid black;
 	cursor: default;
 	display: flex;
+	flex-direction: column;
+}
+
+.header__principal {
+	display: flex;
 	justify-content: space-between;
 	padding: 1rem;
-	height: 40px;
 }
 
 .header__logo {
@@ -14,35 +17,30 @@
 	display: flex;
 }
 
-.header__logo > h1::before {
-	content: "";
-	background-image: url(../../../assets/img/star-solid.svg);
-	background-repeat: no-repeat;
-	background-position: center;
-	display: inline-block;
-	height: 30px;
-	margin-right: 5px;
-	width: 30px;
-}
-
 .header__logo > h1 {
 	font-size: 2rem;
 	font-family: "Pacifico", cursive;
+}
+
+.desktop__navigation {
+	display: none;
 }
 
 .header__options {
 	align-items: center;
 	display: flex;
 	justify-content: center;
+	height: 40px;
 }
 
-.header__options > * {
+.header__options > button {
 	margin-left: 2rem;
 }
 
 .header__options-form {
 	border: 1px solid rgb(199, 199, 199);
 	display: flex;
+	margin-left: 0rem;
 }
 .header__options-form:focus-within {
 	outline: none; /* Remove a borda padrão do foco */

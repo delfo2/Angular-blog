@@ -1,0 +1,8 @@
+.title {
+	font-size: 2rem;
+	font-weight: 700;
+	font-family: var(--rowdies-font);
+	margin-left: 8rem;
+	margin-top: 2rem;
+	text-transform: uppercase;
+}

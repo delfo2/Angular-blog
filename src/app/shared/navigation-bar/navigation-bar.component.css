@@ -1,0 +1,28 @@
+.navigation-link {
+	background-color: white;
+	color: black;
+	display: block;
+	font-size: 1.2rem;
+	padding: 1rem 0;
+	text-decoration: none;
+	text-transform: uppercase;
+	text-align: center;
+	width: 100%;
+}
+
+.navigation-link:hover {
+	filter: invert();
+}
+
+@media screen and (min-width:1000px) {
+	.header__navigation > ul {
+		box-sizing: border-box;
+		display: flex;
+		margin-top: 1rem;
+		justify-content: center;
+	}
+	.navigation-link {
+		box-sizing: border-box;
+		padding: 1rem;
+	}
+}

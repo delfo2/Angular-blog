@@ -1,0 +1,12 @@
+@media screen and (min-width: 1000px) {
+	.header__principal {
+		align-items: center;
+		padding: 1rem 1rem 0 1rem;
+	}
+	.header__options-menu {
+		display: none;
+	}
+	.desktop__navigation {
+		display: block;
+	}
+}

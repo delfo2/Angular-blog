@@ -1,20 +1,28 @@
 <header class="header">
-	<div class="header__logo">
-		<h1>News</h1>
-	</div>
-	<div class="header__options">
-		<button
-			*ngIf="canShowButtons"
-			(click)="toggleVisibility()"
-			class="header__options-search"
-		></button>
-		<form *ngIf="canShowInputSearch" class="header__options-form">
-			<input type="text" name="search" id="search" />
+	<div class="header__principal">
+		<div class="header__logo star">
+			<h1>News</h1>
+		</div>
+		<app-navigation-bar class="desktop__navigation"></app-navigation-bar>
+		<div class="header__options">
 			<button
-				(click)="toggleVisibility()"
+				*ngIf="canShowButtons"
+				(click)="toggleInputVisibility()"
 				class="header__options-search"
 			></button>
-		</form>
-		<button *ngIf="canShowButtons" class="header__options-menu"></button>
+			<form *ngIf="canShowInputSearch" class="header__options-form">
+				<input type="text" name="search" id="search" />
+				<button
+					(click)="toggleInputVisibility()"
+					class="header__options-search"
+				></button>
+			</form>
+			<button
+				*ngIf="canShowButtons"
+				class="header__options-menu"
+				(click)="toggleNavigationVisibility()"
+			></button>
+		</div>
 	</div>
+	<app-navigation-bar *ngIf="canShowNavigation"></app-navigation-bar>
 </header>

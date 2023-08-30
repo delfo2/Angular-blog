@@ -1,1 +1,23 @@
-<p>normal-news-card works!</p>
+<section class="news">
+	<div class="news__img">
+		<img class="news__img-start" src="{{ imgUrl }}" alt="" />
+	</div>
+	<div class="news__text">
+		<div>
+			<h2 class="news__text-title">
+				{{ newsTitle }}
+			</h2>
+			<p class="news__text-description">
+				{{ description }}
+			</p>
+		</div>
+		<div>
+			<span class="news__text-sauce">{{ sourceName }}</span>
+			<app-global-link
+				class="news__text-link"
+				linkHref="{{ newsUrl }}"
+				linkText="ver mais"
+			></app-global-link>
+		</div>
+	</div>
+</section>

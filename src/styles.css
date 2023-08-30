@@ -7,3 +7,27 @@
 	--sans : 'Open Sans', sans-serif;
 	--rowdies-font: 'Rowdies', cursive;
 }
+
+.star::before {
+	content: "";
+	background-image: url(assets/img/star-solid.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	display: inline-block;
+	height: 30px;
+	margin-right: 5px;
+	width: 30px;
+}
+
+.little-star::before,
+.little-star::after {
+	content: "";
+	background-image: url(assets/img/star-solid.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	display: inline-block;
+	height: 15px;
+	margin-right: 5px;
+	margin-left: 5px;
+	width: 15px;
+}

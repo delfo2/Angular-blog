@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { GlobalLinkComponent } from './global-link/global-link.component';
+import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
+import { TittleComponent } from './tittle/tittle.component';
 
 
 
@@ -10,12 +12,15 @@ import { GlobalLinkComponent } from './global-link/global-link.component';
   declarations: [
     HeaderComponent,
     FooterComponent,
-    GlobalLinkComponent
+    GlobalLinkComponent,
+    NavigationBarComponent,
+    TittleComponent
   ],
   exports: [
 	HeaderComponent,
     FooterComponent,
-	GlobalLinkComponent
+	GlobalLinkComponent,
+	TittleComponent
   ],
   imports: [
     CommonModule
