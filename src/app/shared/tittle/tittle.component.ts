@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 
 @Component({
 	selector: 'app-tittle',
@@ -6,69 +6,109 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 	styleUrls: ['./tittle.component.css'],
 })
 export class TittleComponent implements OnInit {
-	titleClass: string = 'broken__title wrong__position';
-	titleText: string = 'Last News';
-	originalWord: string = this.titleText;
-	titleSize: number = this.titleText.length;
-	tempPhrase: string = '';
-	delay = 0;
-	multipliyer = 50;
+	@Input()
+	public text: string = '';
+	public visibility: boolean = false;
+	public titleClass: string = 'broken__title wrong__position';
+
+	originalWord: undefined | string = undefined;
+	private delay: number = 0;
+	private multipliyer: number = this.text.length * 10 > 100 ? 50 : 100;
+	private specialCharacter: string = '|';
+	private deleteDelay = 350;
+
+	getDelay(increase: number = 0): number {
+		this.delay += this.multipliyer + increase;
+		return this.delay;
+	}
 
 	ngOnInit(): void {
+		this.visibility = this.text !== '';
+		this.originalWord = this.text;
 		this.animateTitleText();
 		setInterval(() => {
 			this.originalWordAnimation();
-		}, this.titleSize * this.multipliyer + 1000);
-
+		}, this.getDelay());
 	}
 
 	animateTitleText(): void {
-		const letters = this.titleText.split('');
+		const letters = this.text.split('');
+		this.text = '';
 
-		letters.forEach((letter) => {
-			if (Math.round(Math.random()) % 2 == 0) {
-				this.addNewLetter(letter);
-			} else {
-				this.removeLetter(letter);
+		new Promise<void>((resolve, reject) => {
+			for (let i = 0; i < letters.length; i++) {
+				const isLastIndex = i === letters.length - 1;
+
+				if (this.randomBoolean() && i > 1) {
+					this.delayedLetter(letters[i]).then((letter) =>
+						this.addLetter(letter)
+					);
+
+					this.delayedLetter(letters[i]).then((letter) =>
+						this.addLetter(letter)
+					);
+
+					this.delayedRemoveLetter();
+				} else {
+					this.delayedLetter(letters[i]).then(
+						(letter) => (this.text += letter)
+					);
+				}
+
+				if (isLastIndex) {
+					setTimeout(() => {
+						resolve();
+					}, this.getDelay());
+				}
 			}
+		}).then(() => {
+			this.originalWordAnimation();
 		});
 	}
 
-	removeLetter(letter: string) {
-		this.delay += this.multipliyer;
-		setTimeout(() => {
-			let text = this.titleText.split('').pop();
-			this.titleText = text != undefined ? text : this.titleText;
-			this.addNewLetter(letter);
-		}, this.delay);
-	}
-	addNewLetter(letter: string): void {
-		this.delay += this.multipliyer;
-		const delayInCreactionTime = this.delay;
-		setTimeout(() => {
-			if (this.delay === delayInCreactionTime) {
-				this.originalWordAnimation();
-			}
-			if (this.delay > this.titleSize * 100) {
-				this.titleClass = 'broken__title right__position';
-			}
-			this.titleText = this.tempPhrase;
-			this.tempPhrase = this.titleText += letter;
-			this.titleText = this.tempPhrase + '▌';
-		}, this.delay);
+	private randomBoolean(): boolean {
+		return Math.round(Math.random() * 10) > 5;
 	}
 
-	originalWordAnimation() {
+	private addLetter(letter: string): void {
+		this.text += letter;
+	}
+
+	private clearSpecialCharacter() {
+		this.text = this.text.replaceAll(this.specialCharacter, '');
+	}
+
+	private removeLetter(): void {
+		this.text = this.text.slice(0, -1) + this.specialCharacter;
+	}
+
+	private delayedRemoveLetter(): void {
+		setTimeout(() => {
+			this.clearSpecialCharacter();
+			this.removeLetter();
+		}, this.getDelay(this.deleteDelay));
+	}
+
+	private delayedLetter(letter: string): Promise<string> {
+		return new Promise<string>((resolve, reject) => {
+			setTimeout(() => {
+				this.clearSpecialCharacter();
+				resolve(letter + this.specialCharacter);
+			}, this.getDelay());
+		});
+	}
+
+	private originalWordAnimation(): void {
 		this.titleClass = 'title right__position';
 		setTimeout(() => {
 			this.putDigitOnEnd();
 		}, 400);
 	}
 
-	putDigitOnEnd(): void {
-		this.titleText = this.originalWord + '▌';
+	private putDigitOnEnd(): void {
+		this.text = this.originalWord + this.specialCharacter;
 		setTimeout(() => {
-			this.titleText = this.originalWord;
+			this.clearSpecialCharacter();
 		}, 800);
 	}
 }

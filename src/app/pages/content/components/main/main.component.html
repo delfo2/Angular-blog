@@ -1,25 +1,26 @@
 <app-header></app-header>
 
-<app-tittle></app-tittle>
+<app-tittle text="latest"></app-tittle>
 
 <app-hot-news-card
-	newsTitle="Free Speech Runs Up Against Courtroom Decorum..."
-	description="Judges face uncharted territory in deciding whether a
-	presidential candidate’s remarks flout rules protecting a fair
-	and orderly trial"
-	imgUrl="https://images.wsj.net/im-842640/social"
-	sourceName="The Wall Street Journal"
-	newsUrl="http://www.wsj.com/us-news/trumps-free-speech-runs-up-against-courtroom-decorum-4a9dd0c4"
+	[newsTitle]="news[0].newsTitle"
+	[description]="news[0].description"
+	[imgUrl]="news[0].imgUrl"
+	[sourceName]="news[0].sourceName"
+	[newsUrl]="news[0].newsUrl"
 ></app-hot-news-card>
 
-<app-normal-news-card
-	newsTitle="Free Speech Runs Up Against Courtroom Decorum..."
-	description="Judges face uncharted territory in deciding whether a
-	presidential candidate’s remarks flout rules protecting a fair
-	and orderly trial"
-	imgUrl="https://images.wsj.net/im-842640/social"
-	sourceName="The Wall Street Journal"
-	newsUrl="http://www.wsj.com/us-news/trumps-free-speech-runs-up-against-courtroom-decorum-4a9dd0c4"
-></app-normal-news-card>
+<app-tittle text="see also"></app-tittle>
+
+<section class="news__section">
+	<app-normal-news-card
+		*ngFor="let new of news"
+		[newsTitle]="new.newsTitle"
+		[description]="new.description"
+		[imgUrl]="new.imgUrl"
+		[sourceName]="new.sourceName"
+		[newsUrl]="new.newsUrl"
+	></app-normal-news-card>
+</section>
 
 <app-footer></app-footer>

@@ -32,5 +32,6 @@
 .link:focus,
 .link:focus-visible,
 .link:target {
+    border: 1px solid white;
 	filter: invert();
 }
