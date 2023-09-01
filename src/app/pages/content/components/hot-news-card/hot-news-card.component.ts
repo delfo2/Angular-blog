@@ -42,11 +42,11 @@ export class HotNewsCardComponent implements OnInit {
 	@Input()
 	newsTitle : string = '';
 	@Input()
-	description : string = '';
+	description : string | null= '';
 	@Input()
-	imgUrl : string = '';
+	imgUrl : string | null= '';
 	@Input()
-	sourceName : string = '';
+	sourceName : string | null= '';
 	@Input()
 	newsUrl : string = '';
 

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { NewsArticle } from 'src/app/interfaces/newsArticle';
+import { NewsApiService } from 'src/app/services/news-api.service';
 
 @Component({
 	selector: 'app-main',
@@ -6,23 +8,39 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./main.component.css'],
 })
 export class MainComponent implements OnInit {
-	public news = [
-		{
-			newsTitle: 'Free Speech Runs Up Against Courtroom Decorum...',
-			description: `Judges face uncharted territory in deciding whether a
-				presidential candidate’s remarks flout rules protecting a fair
-				and orderly trial`,
-			imgUrl: 'https://images.wsj.net/im-842640/social',
-			sourceName: 'The Wall Street Journal',
-			newsUrl:
-				'http://www.wsj.com/us-news/trumps-free-speech-runs-up-against-courtroom-decorum-4a9dd0c4',
-		},
-	];
+	@Input()
+	public query = '';
+	private originalNews: NewsArticle[] = [];
+	public firstNews: NewsArticle | undefined;
+	public anotherNews: NewsArticle[] = [];
 
-	ngOnInit(): void {
-		for (let index = 0; index < 5; index++) {
-			this.news.push(this.news[0]);
-		}
+	constructor(private newsApiService: NewsApiService) {}
+
+	public ngOnInit(): void {
+		this.newsApiService.connect(this.query, 7).subscribe((data) => {
+			this.originalNews = data.articles;
+			this.initializeNews();
+		});
 	}
 
+	private initializeNews() {
+		this.originalNews.forEach((news, i) => {
+			let tempNews: NewsArticle = news;
+			tempNews.description = this.removeExcessiveLetters(tempNews.description, 180);
+			tempNews.title = this.removeExcessiveLetters(tempNews.title, 60);
+
+			i === 0 ? (this.firstNews = tempNews) : this.anotherNews.push(tempNews);
+		});
+	}
+
+	private removeExcessiveLetters(phrase: string | null, maxLength : number): string {
+		if(phrase) {
+			if(phrase.length > maxLength ) {
+				phrase = phrase.slice(0, maxLength - 3);
+				phrase += '...';
+			}
+			return phrase;
+		}
+		return 'Pré-vizualização não disponível'
+	}
 }

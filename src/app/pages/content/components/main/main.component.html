@@ -1,26 +1,27 @@
 <app-header></app-header>
 
-<app-tittle text="latest"></app-tittle>
+<app-tittle text="De Última Hora"></app-tittle>
 
 <app-hot-news-card
-	[newsTitle]="news[0].newsTitle"
-	[description]="news[0].description"
-	[imgUrl]="news[0].imgUrl"
-	[sourceName]="news[0].sourceName"
-	[newsUrl]="news[0].newsUrl"
+	*ngIf="firstNews"
+	[newsTitle]="firstNews.title"
+	[description]="firstNews.description"
+	[imgUrl]="firstNews.urlToImage"
+	[sourceName]="firstNews.source.name"
+	[newsUrl]="firstNews.url"
 ></app-hot-news-card>
 
-<app-tittle text="see also"></app-tittle>
+<app-tittle text="Veja Também"></app-tittle>
 
 <section class="news__section">
 	<app-normal-news-card
-		*ngFor="let new of news"
-		[newsTitle]="new.newsTitle"
+		*ngFor="let new of anotherNews"
+		[newsTitle]="new.title"
 		[description]="new.description"
-		[imgUrl]="new.imgUrl"
-		[sourceName]="new.sourceName"
-		[newsUrl]="new.newsUrl"
+		[imgUrl]="new.urlToImage"
+		[sourceName]="new.source.name"
+		[newsUrl]="new.url"
 	></app-normal-news-card>
 </section>
 
-<app-footer></app-footer>
+<app-footer id="footer"></app-footer>
