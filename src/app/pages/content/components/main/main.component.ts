@@ -19,6 +19,7 @@ export class MainComponent implements OnInit {
 	public ngOnInit(): void {
 		this.newsApiService.connect(this.query, 7).subscribe((data) => {
 			this.originalNews = data.articles;
+
 			this.initializeNews();
 		});
 	}
@@ -27,7 +28,7 @@ export class MainComponent implements OnInit {
 		this.originalNews.forEach((news, i) => {
 			let tempNews: NewsArticle = news;
 			tempNews.description = this.removeExcessiveLetters(tempNews.description, 180);
-			tempNews.title = this.removeExcessiveLetters(tempNews.title, 60);
+			tempNews.title = this.removeExcessiveLetters(tempNews.title, 50);
 
 			i === 0 ? (this.firstNews = tempNews) : this.anotherNews.push(tempNews);
 		});

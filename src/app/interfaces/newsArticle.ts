@@ -1,19 +1,17 @@
 export interface NewsArticle {
-	source: {
-		id: string;
-		name: string;
-	};
-	author: string;
 	title: string;
-	description: string | null;
+	description: string;
+	content: string;
 	url: string;
-	urlToImage: string | null;
+	image: string;
 	publishedAt: string;
-	content: string | null;
+	source: {
+		name: string;
+		url: string;
+	};
 }
 
 export interface NativeNewsArticle {
-	articles : NewsArticle[];
-	status : string;
-	total : number
+	articles: NewsArticle[];
+	totalArticles: number;
 }

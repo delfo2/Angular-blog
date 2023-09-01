@@ -6,7 +6,7 @@
 	*ngIf="firstNews"
 	[newsTitle]="firstNews.title"
 	[description]="firstNews.description"
-	[imgUrl]="firstNews.urlToImage"
+	[imgUrl]="firstNews.image"
 	[sourceName]="firstNews.source.name"
 	[newsUrl]="firstNews.url"
 ></app-hot-news-card>
@@ -18,7 +18,7 @@
 		*ngFor="let new of anotherNews"
 		[newsTitle]="new.title"
 		[description]="new.description"
-		[imgUrl]="new.urlToImage"
+		[imgUrl]="new.image"
 		[sourceName]="new.source.name"
 		[newsUrl]="new.url"
 	></app-normal-news-card>

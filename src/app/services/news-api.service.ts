@@ -7,9 +7,9 @@ import { Observable } from 'rxjs';
 	providedIn: 'root',
 })
 export class NewsApiService {
-	private apiKey = 'f5696b25f1244aa0a1ce5f0b5a7ad2da';
-	private newsUrl = 'https://newsapi.org/v2/everything';
-	private language = 'language=pt';
+	private apiKey = '7520b00551e14bec38247fedf96d8ad5';
+	private newsUrl = 'https://gnews.io/api/v4/search';
+	private language = 'lang=pt';
 
 	constructor(private http: HttpClient) {}
 
@@ -18,7 +18,7 @@ export class NewsApiService {
 		results: number
 	): Observable<NativeNewsArticle> {
 		const url =
-			`${this.newsUrl}?q=${query}&${this.language}&pageSize=${results}&apiKey=${this.apiKey}`;
+			`${this.newsUrl}?q=${query}&${this.language}&country=br&max=${results}&apikey=${this.apiKey}`;
 		return this.http.get<NativeNewsArticle>(url);
 	}
 }
