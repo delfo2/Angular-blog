@@ -9,7 +9,10 @@ import { Observable } from 'rxjs';
 export class NewsApiService {
 	private apiKey = '7520b00551e14bec38247fedf96d8ad5';
 	private newsUrl = 'https://gnews.io/api/v4/search';
-	private language = 'lang=pt';
+	private q = (q: string) => {
+		return `"${q}" AND NOT "oul"`;
+	};
+	private settings = 'lang=pt&sortby=relevance';
 
 	constructor(private http: HttpClient) {}
 
@@ -17,8 +20,7 @@ export class NewsApiService {
 		query: string,
 		results: number
 	): Observable<NativeNewsArticle> {
-		const url =
-			`${this.newsUrl}?q=${query}&${this.language}&country=br&max=${results}&apikey=${this.apiKey}`;
+		const url = `${this.newsUrl}?q=${this.q(query)}&${this.settings}&max=${results}&apikey=${this.apiKey}`;
 		return this.http.get<NativeNewsArticle>(url);
 	}
 }

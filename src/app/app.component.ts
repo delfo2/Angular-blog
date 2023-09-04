@@ -5,7 +5,4 @@ import { Component, OnInit } from '@angular/core';
 	templateUrl: './app.component.html',
 	styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
-	public title = 'Angular-blog';
-	public query = 'Amazônia';
-}
+export class AppComponent {}

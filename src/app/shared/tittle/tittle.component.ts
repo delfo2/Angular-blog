@@ -8,14 +8,22 @@ import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 export class TittleComponent implements OnInit {
 	@Input()
 	public text: string = '';
+	@Input()
+	public size: number = 2;
+	@Input()
+	public marginTop = '2rem';
+	@Input()
+	public marginRight = true;
+	public fontSize = `font-size: ${this.size}rem`
 	public visibility: boolean = false;
-	public titleClass: string = 'broken__title wrong__position';
+	public titleClass: string = this.marginRight === true ? 'broken__title wrong__position' : 'broken__title';
 
 	originalWord: undefined | string = undefined;
 	private delay: number = 0;
-	private multipliyer: number = this.text.length * 10 > 100 ? 50 : 100;
+	private multipliyer: number = this.text.length > 15 ? 50 : 100;
 	private specialCharacter: string = '|';
-	private deleteDelay = 350;
+	private deleteDelay = this.multipliyer === 50 ? 300 : 100;
+	private errorChance = this.multipliyer === 50 ? 2 : 3;
 
 	getDelay(increase: number = 0): number {
 		this.delay += this.multipliyer + increase;
@@ -23,6 +31,12 @@ export class TittleComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
+		if(this.text.length > 20) {
+			this.deleteDelay, this.multipliyer = 40;
+		}
+		if(this.size !== 2) {
+			this.fontSize = `font-size: ${this.size}rem`;
+		}
 		this.visibility = this.text !== '';
 		this.originalWord = this.text;
 		this.animateTitleText();
@@ -67,7 +81,7 @@ export class TittleComponent implements OnInit {
 	}
 
 	private randomBoolean(): boolean {
-		return Math.round(Math.random() * 10) > 5;
+		return Math.round(Math.random() * 10) < this.errorChance;
 	}
 
 	private addLetter(letter: string): void {
@@ -99,7 +113,7 @@ export class TittleComponent implements OnInit {
 	}
 
 	private originalWordAnimation(): void {
-		this.titleClass = 'title right__position';
+		this.titleClass = this.marginRight === true ? 'title right__position' : 'title';
 		setTimeout(() => {
 			this.putDigitOnEnd();
 		}, 400);

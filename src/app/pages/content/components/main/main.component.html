@@ -1,27 +1,35 @@
 <app-header></app-header>
 
-<app-tittle text="De Última Hora"></app-tittle>
+<div *ngIf="haveNews">
+	<app-tittle text="De Última Hora"></app-tittle>
 
-<app-hot-news-card
+	<app-hot-news-card
 	*ngIf="firstNews"
 	[newsTitle]="firstNews.title"
 	[description]="firstNews.description"
 	[imgUrl]="firstNews.image"
 	[sourceName]="firstNews.source.name"
 	[newsUrl]="firstNews.url"
-></app-hot-news-card>
+	></app-hot-news-card>
 
-<app-tittle text="Veja Também"></app-tittle>
+	<app-tittle text="Veja Também"></app-tittle>
 
-<section class="news__section">
-	<app-normal-news-card
+	<section class="news__section">
+		<app-normal-news-card
 		*ngFor="let new of anotherNews"
 		[newsTitle]="new.title"
 		[description]="new.description"
 		[imgUrl]="new.image"
 		[sourceName]="new.source.name"
 		[newsUrl]="new.url"
-	></app-normal-news-card>
-</section>
+		></app-normal-news-card>
+	</section>
+</div>
+<div *ngIf="loadFailed">
+	<app-fail [search]="query"></app-fail>
+</div>
+<div *ngIf="showLoad">
+	<app-load></app-load>
+</div>
 
 <app-footer id="footer"></app-footer>

@@ -1,6 +1,8 @@
-# AngularBlog
+# Black Star News
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
+**Project Overview:**
+
+Black Star News is a dynamic web application built with [Angular CLI](https://github.com/angular/angular-cli) (version 16.2.0) that provides users with access to the latest news headlines from various sources. This project offers a user-friendly interface for viewing news articles and incorporates the Swiper library for an enhanced mobile touch slider experience. Below, you'll find key information about this project.
 
 ## Development server
 
@@ -24,9 +26,17 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 
 ## API Integration
-This project utilizes the News API to fetch and display news articles. The News API provides the latest news headlines from various sources.
+This project utilizes the GNews API to fetch and display news articles. The GNews API provides the latest news headlines from various sources.
 
-For more information about the News API, please visit [News API Documentation.](https://newsapi.org).
+For more information about the News API, please visit [GNews API Documentation.](https://gnews.io).
+
+## Swiper Integration
+
+The project now includes Swiper, a free and modern mobile touch slider with hardware accelerated transitions and amazing native behavior. Swiper is intended to be used in mobile websites, mobile web apps, and mobile native/hybrid apps.
+
+Please note that Swiper is not compatible with all platforms; it is a modern touch slider focused only on modern apps/platforms to provide the best experience and simplicity.
+
+For more information about Swiper, please visit [Swiper Documentation.](https://swiperjs.com/)
 
 ## Further help
 

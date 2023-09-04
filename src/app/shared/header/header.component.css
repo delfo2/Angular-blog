@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
 .header {
 	border-bottom: 2px solid black;
 	cursor: default;
@@ -20,6 +19,7 @@
 .header__logo > h1 {
 	font-size: 2rem;
 	font-family: "Pacifico", cursive;
+	font-weight: 700;
 }
 
 .desktop__navigation {
@@ -42,9 +42,14 @@
 	display: flex;
 	margin-left: 0rem;
 }
+
 .header__options-form:focus-within {
-	outline: none; /* Remove a borda padrão do foco */
-	border-color: black; /* Altera a cor da borda do input */
+	outline: none;
+	border-color: black;
+}
+
+.invalid-border:focus-within {
+	border-color: red;
 }
 
 .header__options-form > input {
@@ -71,4 +76,8 @@
 }
 .header__options-search {
 	background-image: url("../../../assets/img/pesquisa_preto.png");
+}
+
+.alert-danger {
+	color: rgb(255, 72, 72);
 }

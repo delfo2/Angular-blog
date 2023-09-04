@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-navigation-bar',
-  templateUrl: './navigation-bar.component.html',
-  styleUrls: ['./navigation-bar.component.css']
+	selector: 'app-navigation-bar',
+	templateUrl: './navigation-bar.component.html',
+	styleUrls: ['./navigation-bar.component.css'],
 })
 export class NavigationBarComponent {
-
+	public moveToEnd() {
+		window.scrollTo(0, document.body.scrollHeight);
+	}
 }

@@ -18,7 +18,7 @@
 }
 
 .news__img {
-	height: 50%;
+	height: 40vh;
 	width: 100%;
 	overflow: hidden;
 	margin-bottom: .5rem;
@@ -70,7 +70,7 @@
 	font-weight: 400;
 	font-style: italic;
 	margin-bottom: .5rem;
-	height: 10%;
+	height: 20%;
 }
 
 .news__text-link {

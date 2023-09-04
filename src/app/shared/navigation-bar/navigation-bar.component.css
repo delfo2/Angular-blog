@@ -1,6 +1,7 @@
 .navigation-link {
 	background-color: white;
 	color: black;
+	cursor: pointer;
 	display: block;
 	font-size: 1.2rem;
 	font-family: var(--rowdies-font);

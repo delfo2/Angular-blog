@@ -1,19 +1,15 @@
 .title {
 	color: black;
-	font-size: 2rem;
 	font-weight: 700;
 	font-family: var(--rowdies-font);
-	margin-top: 2rem;
 	text-transform: uppercase;
 	transition: all 500ms;
 }
 
 .broken__title {
 	color: #8d8d8d;
-	font-size: 2rem;
 	font-weight: 100;
 	font-family: var(--rowdies-font);
-	margin-top: 2rem;
 	text-transform: uppercase;
 	transition: all 500ms;
 	text-decoration: underline;

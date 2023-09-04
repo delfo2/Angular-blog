@@ -1,0 +1,78 @@
+.form {
+	align-items: stretch;
+	display: flex;
+	border: 2px solid rgb(0, 0, 0);
+	background-color: rgba(0, 0, 0, 0);
+	flex-direction: row;
+	margin-top: 4rem;
+	width: 50vw;
+	height: 4rem;
+	transition: all 500ms;
+}
+
+.form:focus-within {
+	border: 2px solid rgb(0, 0, 0);
+}
+
+.form > input {
+	border: none;
+	background-color: rgba(255, 255, 255, 0);
+	color: rgb(0, 0, 0);
+	font-size: 2rem;
+	font-family: var(--rowdies-font);
+	width: calc(90% - 20px);
+	padding: 0 10px;
+}
+
+.form > input:focus-within {
+	border: none;
+	outline: none;
+}
+
+.form > input::placeholder {
+	font-family: var(--rowdies-font);
+	font-weight: 100;
+	transition: all 1000ms;
+}
+
+.form > button, .form > button:disabled {
+	border: none;
+	background: url(../../../../../assets/img/pesquisa_preto.png) no-repeat
+		center;
+	cursor: pointer;
+	background-color: rgba(255, 255, 255, 0);
+	width: 10%;
+	height: auto;
+	padding: 0;
+	transition: all 500ms;
+}
+
+.form:focus-within > button,
+.form > button:focus,
+.form > button:hover,
+.form > button:active,
+.form > button:focus-visible,
+.form > button:focus-within {
+	background-color: white;
+	filter: invert();
+}
+
+@media screen and (max-width: 400px) {
+	.form {
+		margin-top: 10rem;
+		width: 90vw;
+	}
+
+	.form > input {
+		font-size: 1.5rem;
+		width: calc(80% - 20px);
+	}
+
+	.form > button, .form > button:disabled {
+		width: 20%;
+	}
+}
+
+.alert-danger {
+	color: rgb(255, 72, 72);
+}

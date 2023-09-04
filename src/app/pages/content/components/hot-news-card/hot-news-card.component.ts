@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { disableIfDeviceIsMobile } from 'src/app/decorators/disableIfDeviceIsDesktop';
 
 @Component({
 	selector: 'app-hot-news-card',
@@ -9,18 +10,24 @@ import { Component, Input, OnInit } from '@angular/core';
 	],
 })
 export class HotNewsCardComponent implements OnInit {
-	imgProps = {
+	public imgProps = {
 		size: '0%',
 		position: '0%',
 		transition: 'all 1500ms',
+		scale: '1.0',
 		changeSize: () => {
 			this.imgProps.size = '100%';
+		},
+		changeScale: () => {
+			if (!this.isMobile())
+				this.imgProps.scale =
+					this.imgProps.scale === '1.0' ? '1.2' : '1.0';
 		},
 		changePosition: () => {
 			this.imgProps.position =
 				parseInt(this.imgProps.position) == 0 ? '100%' : '0%';
 		},
-		resize: ()=>{
+		resize: () => {
 			setTimeout(() => {
 				this.imgProps.changeSize();
 			}, 500);
@@ -29,36 +36,40 @@ export class HotNewsCardComponent implements OnInit {
 			setTimeout(() => {
 				this.imgProps.transition = 'all 3000ms ease-in-out';
 				this.imgProps.changePosition();
+				this.imgProps.changeScale();
 			}, 1000);
 		},
-		startPositionSwitchAnimation: () => {
+		startAnimation: () => {
+			this.imgProps.changeScale();
 			this.imgProps.changePosition();
 			setInterval(() => {
 				this.imgProps.changePosition();
+				this.imgProps.changeScale();
 			}, 3000);
-		}
+		},
 	};
 
 	@Input()
-	newsTitle : string = '';
+	public newsTitle: string = '';
 	@Input()
-	description : string | null= '';
+	public description: string | null = '';
 	@Input()
-	imgUrl : string | null= '';
+	public imgUrl: string | null = '';
 	@Input()
-	sourceName : string | null= '';
+	public sourceName: string | null = '';
 	@Input()
-	newsUrl : string = '';
+	public newsUrl: string = '';
 
-	imgAnimation() {
+	public imgAnimation() {
 		this.imgProps.resize();
 		this.imgProps.changeTransition();
 		setTimeout(() => {
-			this.imgProps.startPositionSwitchAnimation();
+			this.imgProps.startAnimation();
 		}, 4000);
 	}
 
-	ngOnInit(): void {
-		this.imgAnimation()
+	public ngOnInit(): void {
+		this.imgAnimation();
 	}
+	private isMobile = (): boolean => window.innerWidth < 1000;
 }

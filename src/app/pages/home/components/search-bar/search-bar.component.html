@@ -1,0 +1,23 @@
+<form class="form" [formGroup]="groupMain" (ngSubmit)="onSubmit()">
+	<input
+		id="searchInput"
+		type="text"
+		placeholder="ex: Amazônia"
+		formControlName="searchInput"
+	/>
+	<button type="submit" [disabled]="!groupMain.valid"></button>
+</form>
+<div
+	*ngIf="searchInput?.invalid && (searchInput?.dirty || searchInput?.touched)"
+	class="alert-danger"
+>
+	<div *ngIf="searchInput?.errors?.['required']">
+		A pesquisa não pode estar vazia.
+	</div>
+	<div *ngIf="searchInput?.errors?.['pattern']">
+		A pesquisa deve conter apenas letras.
+	</div>
+	<div *ngIf="searchInput?.errors?.['minlength']">
+		A pesquisa deve conter mais de 3 carácteres.
+	</div>
+</div>

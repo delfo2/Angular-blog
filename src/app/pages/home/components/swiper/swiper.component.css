@@ -1,0 +1,40 @@
+@import url("https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css");
+
+.swiper__main {
+	position: relative;
+	height: 5vh;
+	background: #fff;
+	margin: 0;
+	padding: 0;
+	width: 50vw;
+}
+
+.swiper {
+	width: 100%;
+	height: 100%;
+}
+
+.swiper-slide {
+	text-align: center;
+	background: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.swiper-slide img {
+	display: block;
+	filter: grayscale();
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	padding: 1rem;
+}
+
+.swiper-slide img:hover {
+	filter:  invert(14%) sepia(98%) saturate(6666%) hue-rotate(3deg) brightness(91%) contrast(121%);
+}
+
+.cnn > img:hover {
+	filter: none;
+}

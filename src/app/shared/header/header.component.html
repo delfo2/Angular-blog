@@ -10,12 +10,24 @@
 				(click)="toggleInputVisibility()"
 				class="header__options-search"
 			></button>
-			<form *ngIf="canShowInputSearch" class="header__options-form">
-				<input type="text" name="search" id="search" />
-				<button
-					(click)="toggleInputVisibility()"
-					class="header__options-search"
-				></button>
+			<form
+				*ngIf="canShowInputSearch"
+				class="header__options-form"
+				[formGroup]="searchForm"
+				(ngSubmit)="onSubmit()"
+				[ngClass]="{
+					'invalid-border': !searchForm.valid && searchForm.touched
+				}"
+				title="apenas letras!"
+			>
+				<input
+					type="text"
+					name="search"
+					id="search"
+					formControlName="search"
+					(blur)="toggleInputVisibility()"
+				/>
+				<button class="header__options-search" type="submit"></button>
 			</form>
 			<button
 				*ngIf="canShowButtons"

@@ -46,6 +46,7 @@
 	height: 400px;
 	width: 50%;
 	transition: all 500ms;
+	overflow: hidden;
 }
 
 .news__img-start {

@@ -1,0 +1,19 @@
+<section class="search">
+	<div class="search__content">
+		<h1 class="star content__header" [style.width]="headerSize">News</h1>
+		<app-tittle
+			class="content__title"
+			text="Bem Vindo!"
+			[size]="titleSize"
+			[style.width]="titleWidth"
+		></app-tittle>
+		<app-tittle
+			class="content__title content__title-height"
+			text="para ver as noticias, digite um tema"
+			[size]="0.9"
+			[style.width]="titleWidth"
+		></app-tittle>
+		<app-search-bar></app-search-bar>
+	</div>
+	<app-swiper class="swiper"></app-swiper>
+</section>
