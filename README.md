@@ -4,6 +4,26 @@
 
 Black Star News is a dynamic web application built with [Angular CLI](https://github.com/angular/angular-cli) (version 16.2.0), offering users convenient access to the most current news headlines from a diverse range of sources. This project is designed with a user-friendly interface that simplifies news article search and viewing, all powered by the GNews API. Below, you'll discover essential details about the Black Star News project.
 
+## Video-Demo
+
+### Load
+https://github.com/delfo2/Angular-blog/assets/105376328/dfacc5b1-9e0d-45ff-9f5f-c4efa13bff72
+
+### Load - Mobile
+https://github.com/delfo2/Angular-blog/assets/105376328/d0a3fd10-9734-4bc5-8ba4-4f245564563c
+
+### Search
+https://github.com/delfo2/Angular-blog/assets/105376328/78d56390-0008-4068-b8f8-ca40c459165e
+
+### Search - Mobile
+https://github.com/delfo2/Angular-blog/assets/105376328/43e3015f-00d5-460f-9ca6-5dd2ce6b34db
+
+### Type Check
+https://github.com/delfo2/Angular-blog/assets/105376328/0f65581d-71da-42c6-aefb-b233b33d1d47
+
+### Error Message in Mobile
+https://github.com/delfo2/Angular-blog/assets/105376328/a2da3197-68c5-4b3a-8036-da23922b368e
+
 ### Features
 Here are some of the key features and functionalities of Black Star News:
 
