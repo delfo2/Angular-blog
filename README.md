@@ -1,7 +1,8 @@
-# Black Star News
+# Black Star News [Site](https://angular-blog-pink.vercel.app/)
 
 ## Project Overview:
 
+### You Can open and test the project [Here](https://angular-blog-pink.vercel.app/)
 Black Star News is a dynamic web application built with [Angular CLI](https://github.com/angular/angular-cli) (version 16.2.0), offering users convenient access to the most current news headlines from a diverse range of sources. This project is designed with a user-friendly interface that simplifies news article search and viewing, all powered by the GNews API. Below, you'll discover essential details about the Black Star News project.
 
 ## Video-Demo
