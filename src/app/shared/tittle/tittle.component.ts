@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
 	selector: 'app-tittle',
@@ -18,19 +18,19 @@ export class TittleComponent implements OnInit {
 	public visibility: boolean = false;
 	public titleClass: string = this.marginRight === true ? 'broken__title wrong__position' : 'broken__title';
 
-	originalWord: undefined | string = undefined;
+	public originalWord: undefined | string = undefined;
 	private delay: number = 0;
 	private multipliyer: number = this.text.length > 15 ? 50 : 100;
 	private specialCharacter: string = '|';
 	private deleteDelay = this.multipliyer === 50 ? 300 : 100;
 	private errorChance = this.multipliyer === 50 ? 2 : 3;
 
-	getDelay(increase: number = 0): number {
+	public getDelay(increase: number = 0): number {
 		this.delay += this.multipliyer + increase;
 		return this.delay;
 	}
 
-	ngOnInit(): void {
+	public ngOnInit(): void {
 		if(this.text.length > 20) {
 			this.deleteDelay, this.multipliyer = 40;
 		}
@@ -45,7 +45,7 @@ export class TittleComponent implements OnInit {
 		}, this.getDelay());
 	}
 
-	animateTitleText(): void {
+	public animateTitleText(): void {
 		const letters = this.text.split('');
 		this.text = '';
 

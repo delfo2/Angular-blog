@@ -44,19 +44,16 @@ export class MainComponent implements OnInit, OnChanges {
 
 	public searchNews(): void {
 		this.showLoad = true;
-		this.loadFailed = false;
 		this.haveNews = false;
+		this.loadFailed = false;
+
 		this.newsApiService.connect(this.query, 10).subscribe((data) => {
 			this.originalNews = data.articles;
 
 			this.initializeNews();
-			if (this.originalNews.length > 0) {
-				this.haveNews = true;
-				this.loadFailed = false;
-			} else {
-				this.loadFailed = true;
-				this.haveNews = false;
-			}
+
+			this.haveNews = this.originalNews.length > 0;
+			this.loadFailed = !(this.originalNews.length > 0);
 			this.showLoad = false;
 		});
 	}

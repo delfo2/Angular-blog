@@ -6,11 +6,16 @@ import { ContentComponent } from './pages/content/content.component';
 const routes: Routes = [
 	{
 		path:'',
-		component: HomeComponent
+		component: HomeComponent,
+		pathMatch:'full'
 	},
 	{
 		path:'resultado',
 		component: ContentComponent
+	},
+	{
+		path:'**',
+		redirectTo:''
 	}
 ];
 

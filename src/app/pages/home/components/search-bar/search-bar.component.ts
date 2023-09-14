@@ -21,7 +21,6 @@ export class SearchBarComponent {
 
 	public onSubmit(): void {
 		let search = this.groupMain.value.searchInput;
-		console.log(search);
 		this.groupMain.patchValue({
 			searchInput: '',
 		});

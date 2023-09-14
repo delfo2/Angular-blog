@@ -33,6 +33,9 @@
 	transition: all 500ms;
 	width: 100%;
 }
+.news__img-start--d {
+	object-fit: contain;
+}
 
 .news__text {
 	align-items: flex-start;

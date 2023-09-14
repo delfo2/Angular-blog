@@ -10,13 +10,18 @@ import { Component, Input } from '@angular/core';
 })
 export class NormalNewsCardComponent {
 	@Input()
-	newsTitle : string = '';
+	public newsTitle : string = '';
 	@Input()
-	description : string | null= '';
+	public description : string | null= '';
 	@Input()
-	imgUrl : string | null= '';
+	public imgUrl : string | null= '';
 	@Input()
-	sourceName : string = '';
+	public sourceName : string = '';
 	@Input()
-	newsUrl : string = '';
+	public newsUrl : string = '';
+	public showDefaultImg = false;
+
+	public loadDefaultImg(): void {
+		this.showDefaultImg = true;
+	}
 }

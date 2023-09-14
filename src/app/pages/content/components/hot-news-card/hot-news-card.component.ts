@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { disableIfDeviceIsMobile } from 'src/app/decorators/disableIfDeviceIsDesktop';
 
 @Component({
 	selector: 'app-hot-news-card',
